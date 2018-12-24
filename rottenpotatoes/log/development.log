@@ -946,3 +946,9 @@ Started GET "/movies/new" for 52.144.111.112 at 2018-12-24 20:37:57 +0000
 Processing by MoviesController#new as HTML
   Rendered movies/new.html.haml within layouts/application (9.3ms)
 Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies/new" for 52.144.111.112 at 2018-12-24 21:07:49 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.haml within layouts/application (15.4ms)
+Completed 200 OK in 184ms (Views: 183.6ms | ActiveRecord: 0.0ms)

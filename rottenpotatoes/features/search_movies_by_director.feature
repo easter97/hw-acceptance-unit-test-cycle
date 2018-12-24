@@ -12,7 +12,7 @@ Background: movies in database
   | Blade Runner | PG     | Ridley Scott |   1982-06-25 |
   | Alien        | R      |              |   1979-05-25 |
   | THX-1138     | R      | George Lucas |   1971-03-11 |
-
+#test update
 Scenario: add director to existing movie
   When I go to the edit page for "Alien"
   And  I fill in "Director" with "Ridley Scott"
@@ -32,3 +32,25 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+#test delete  
+Scenario: delete movie
+  Given I am on the details page for "Alien"
+  And  I press "Delete"
+  Then  I should be on the home page 
+  And   I should see "Movie 'Alien' deleted."
+#test create
+Scenario: add movie
+  Given I am on the home page
+  And  I follow "Add new movie"
+  Then I should be on the new movie page
+  When I fill in "Title" with "Twilight"
+  And I select "PG-13" from "Rating"
+  And I press "Save Changes"
+  Then I should be on the home page
+  And I should see "Twilight was successfully created."
+#test index
+Scenario: all ratings selected
+  # see assignment
+  Given I am on the home page
+  When I check the following ratings: G, PG, PG-13, R
+  Then I should see all movies
